@@ -1,23 +1,21 @@
 <html>
 <head>
-    <title></title>
- 
-    <!-- STEP 1 - Including the gigya.js script: -->
-    <script type="text/javascript" src="https://cdns.gigya.com/js/gigya.js?apiKey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I">
- 
-    // STEP 2 - Defining a global configuration object:   
-    {
-        enabledProviders: "facebook"
-    }
-    </script>
+    <title>Gigya Login</title>
 </head>
- 
-<body >
-<script type="text/javascript" >
-   gigya.accounts.showScreenSet({
-    screenSet:'Default-RegistrationLogin' //The default start screen is login, so there is no need to specify it here.
-});
+<body>
+<script>
+function onJSLoad() {
+    gigya.accounts.showScreenSet({
+    screenSet: 'barista.tr-1-RegistrationLogin',
+    containerID: 'pluginContainer'
+    })
+}
 </script>
-</div>
+    
+<script src='https://cdns.il1.gigya.com/JS/gigya.js?apikey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I'
+type='text/javascript' onLoad='onJSLoad();'>
+</script>
 </body>
 </html>
+
+

@@ -34,8 +34,8 @@ function loadGigyaScript(url, callback) {
 }
     
 var url = new URL(window.location.href);
-dataCenter = url.searchParams.get("dataCenter");
-apiKey = url.searchParams.get("apiKey");
+dataCenter = url.searchParams.get("dataCenter") || dataCenter;
+apiKey = url.searchParams.get("apiKey") || apiKey;
 var apiUrl = `https://cdns.` + dataCenter + `.gigya.com/JS/gigya.js?apikey=` + apiKey
 loadGigyaScript(apiUrl, onJSLoad)
 // us1 / ida-test-soa  

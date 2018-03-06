@@ -4,15 +4,15 @@
 </head>
 <body>
     
-    <h1></h1>
-    <p>Set url params 'apiKey' and 'dataCenter' of site user is need to be registered to</p>
+    <h1>Set url params 'apiKey' and 'dataCenter' of site user is need to be registered to</h1>
+    <p></p>
 <script>
 function onJSLoad() {
     gigya.accounts.showScreenSet({
     screenSet: 'Default-RegistrationLogin'
     })
     var domains = window.gigya.partnerSettings.baseDomains;
-    var h1 = document.getElementsByTagName("H1")[0];
+    var h1 = document.getElementsByTagName("P")[0];
     h1.innerHTML = domains;
 }
 function loadGigyaScript(url, callback) {

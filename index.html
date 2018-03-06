@@ -11,8 +11,8 @@ function onJSLoad() {
     screenSet: 'Default-RegistrationLogin'
     })
     var domains = window.gigya.partnerSettings.baseDomains;
-    var domains = document.getElementById("domains");
-    domains.innerHTML = domains;
+    var domainsEl = document.getElementById("domains");
+    domainsEl.innerHTML = domains;
 }
 function loadGigyaScript(url, callback) {
     // Adding the script tag to the head as suggested before

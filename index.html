@@ -4,15 +4,18 @@
 </head>
 <body>
     <h2 id='domains'></h2>
-    <p>https://gigya-test.github.io/login/?dataCenter=il1&apiKey=3_M6f...sewE</p>
+    <p>https://gigya-test.github.io/login/?dataCenter=_dataCenter_&apiKey=_siteApiKey_</p>
 <script>
+// default site to create users for
+var dataCenter = 'il1';
+var apiKey = '3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I';// __base_site_for_e2e
 function onJSLoad() {
     gigya.accounts.showScreenSet({
     screenSet: 'Default-RegistrationLogin'
     })
     var domains = window.gigya.partnerSettings.baseDomains;
     var domainsEl = document.getElementById("domains");
-    domainsEl.innerHTML = domains;
+    domainsEl.innerHTML = 'dataCenter: ' + dataCenter + '; site: ' + domains + '(' + apiKey +')';
 }
 function loadGigyaScript(url, callback) {
     // Adding the script tag to the head as suggested before
@@ -31,8 +34,8 @@ function loadGigyaScript(url, callback) {
 }
     
 var url = new URL(window.location.href);
-var dataCenter = url.searchParams.get("dataCenter") || 'il1';
-var apiKey = url.searchParams.get("apiKey") || '3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I';// __base_site_for_e2e
+dataCenter = url.searchParams.get("dataCenter");
+apiKey = url.searchParams.get("apiKey");
 var apiUrl = `https://cdns.` + dataCenter + `.gigya.com/JS/gigya.js?apikey=` + apiKey
 loadGigyaScript(apiUrl, onJSLoad)
 // us1 / ida-test-soa  

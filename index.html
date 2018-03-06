@@ -3,21 +3,20 @@
     <title>Gigya Login</title>
 </head>
 <body>
-    
-    <h2>https://maxgrytsuk-gigya.github.io/login/?dataCenter=il1&apiKey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I</h2>
-    <p></p>
+    <h2 id='domains'><h2>
+    <p>https://maxgrytsuk-gigya.github.io/login/?dataCenter=il1&apiKey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I</p>
 <script>
 function onJSLoad() {
     gigya.accounts.showScreenSet({
     screenSet: 'Default-RegistrationLogin'
     })
     var domains = window.gigya.partnerSettings.baseDomains;
-    var h1 = document.getElementsByTagName("P")[0];
-    h1.innerHTML = domains;
+    var domains = document.getElementById("domains");
+    domains.innerHTML = domains;
 }
 function loadGigyaScript(url, callback) {
     // Adding the script tag to the head as suggested before
-    var head = document.getElementsByTagName('head')[0];
+    var head = document.getElementsById('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = url;

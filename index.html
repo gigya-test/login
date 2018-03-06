@@ -26,9 +26,9 @@ function loadGigyaScript(url, callback) {
 }
     
 var url = new URL(window.location.href);
-var dataCenter = url.searchParams.get("dataCenter");
-var apiKey = url.searchParams.get("apiKey");
-var apiUrl = `https://cdns.{dataCenter}.gigya.com/JS/gigya.js?apikey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I`
+var dataCenter = url.searchParams.get("dataCenter") || 'il1';
+var apiKey = url.searchParams.get("apiKey") || '3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I';
+var apiUrl = `https://cdns.` + dataCenter + `.gigya.com/JS/gigya.js?apikey=` + apiKey
 loadGigyaScript(apiUrl, onJSLoad)
 </script>
 <!-- us1 / ida-test-soa -->

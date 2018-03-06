@@ -24,10 +24,12 @@ function loadGigyaScript(url, callback) {
     // Fire the loading
     head.appendChild(script);
 }
-    loadGigyaScript(
-        'https://cdns.il1.gigya.com/JS/gigya.js?apikey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I',
-        onJSLoad
-        )
+    
+var url = new URL(window.location.href);
+var dataCenter = url.searchParams.get("dataCenter");
+var apiKey = url.searchParams.get("apiKey");
+var apiUrl = `https://cdns.{dataCenter}.gigya.com/JS/gigya.js?apikey=3_M6fRJCEMS54keyScmDMyehcG2ox82uCikKW7L56XOcHvQBjoKpjLY_zRNg4nGJ6I`
+loadGigyaScript(apiUrl, onJSLoad)
 </script>
 <!-- us1 / ida-test-soa -->
 <!-- <script src='https://cdns.us1.gigya.com/JS/gigya.js?apikey=3_tuy1llbPnwe1LmPPl3-UjbVZGwfhKht1mhH-jN0UrKZQLNJsVceDufxv4EUXkoXA' type='text/javascript' onLoad='onJSLoad();'></script> -->

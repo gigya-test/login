@@ -3,7 +3,8 @@
     <title>Gigya Login</title>
 </head>
 <body>
-    <h2 id='domains'></h2>
+    <h3 id='domain'></h3>
+     <h3 id='dataCenter'></h3>
     <p>https://gigya-test.github.io/login/?dataCenter=_dataCenter_&apiKey=_siteApiKey_</p>
 <script>
 // default site to create users for
@@ -14,8 +15,11 @@ function onJSLoad() {
     screenSet: 'Default-RegistrationLogin'
     })
     var domains = window.gigya.partnerSettings.baseDomains;
-    var domainsEl = document.getElementById("domains");
-    domainsEl.innerHTML = 'dataCenter: ' + dataCenter + '; site: ' + domains + '(' + apiKey +')';
+    var domainEl = document.getElementById("domain");
+    domainEl.innerHTML = 'site: ' + domains + ' (' + apiKey +')';
+    
+    var dcEl = document.getElementById("dataCenter");
+    dcEl.innerHTML = 'dataCenter: ' + dataCenter;
 }
 function loadGigyaScript(url, callback) {
     // Adding the script tag to the head as suggested before

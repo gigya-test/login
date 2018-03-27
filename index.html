@@ -6,6 +6,7 @@
     <h3 id='domain'></h3>
     <h3 id='dataCenter'></h3>
     <p>https://gigya-test.github.io/login/?dataCenter=<i>_dataCenter_</i>&apiKey=<i>_siteApiKey_</i></p>
+    <button onclick="openUpdateProfileScreenset()">Update Profile</button>
 <script>
 // default site to create users for
 var dataCenter = 'il1';
@@ -35,6 +36,12 @@ function loadGigyaScript(url, callback) {
 
     // Fire the loading
     head.appendChild(script);
+}
+    
+function openUpdateProfileScreenset() {
+    gigya.accounts.showScreenSet({
+        screenSet: 'Default-ProfileUpdate'
+        })
 }
     
 var url = new URL(window.location.href);

@@ -12,10 +12,6 @@
 var dataCenter = 'il1';
 var apiKey = '3_DR5_z8VDFZl3KgnaQrCLA8Hxn_vVyZG_aXjEB4Lb-Rcpx_e4DGYCbsl-vmQETc5z';// __base_site
 function onJSLoad() {
-    function getAccountInfoHandler(responseObj){
-  console.log(responseObj);
-}
-
     gigya.accounts.getAccountInfo({callback: (res) => {
        console.log(res);
     }});

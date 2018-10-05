@@ -14,7 +14,7 @@ var apiKey = '3_DR5_z8VDFZl3KgnaQrCLA8Hxn_vVyZG_aXjEB4Lb-Rcpx_e4DGYCbsl-vmQETc5z
 function onJSLoad() {
     gigya.accounts.getAccountInfo({callback: (res) => {
         console.log(res);
-        var screenSet = res.UID ? 'Default-RegistrationLogin' : 'Default-ProfileUpdate' 
+        var screenSet = res.UID ? 'Default-ProfileUpdate' : 'Default-RegistrationLogin';
         gigya.accounts.showScreenSet({ screenSet })
     }});
     

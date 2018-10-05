@@ -12,13 +12,12 @@
 var dataCenter = 'il1';
 var apiKey = '3_DR5_z8VDFZl3KgnaQrCLA8Hxn_vVyZG_aXjEB4Lb-Rcpx_e4DGYCbsl-vmQETc5z';// __base_site
 function onJSLoad() {
-    const account = await gigya.accounts.getAccountInfo({callback: (res) => {
-       console.log(res);
+    gigya.accounts.getAccountInfo({callback: (res) => {
+        console.log(res);
+        var screenSet = res.UID ? 'Default-RegistrationLogin' : 'Default-ProfileUpdate' 
+        gigya.accounts.showScreenSet({ screenSet })
     }});
     
-    gigya.accounts.showScreenSet({
-    screenSet: 'Default-RegistrationLogin'
-    })
     var domains = window.gigya.partnerSettings.baseDomains;
     var domainEl = document.getElementById("domain");
     domainEl.innerHTML = 'site: ' + domains + ' (' + apiKey +')';

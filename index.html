@@ -8,16 +8,19 @@
     <p>https://gigya-test.github.io/login/?dataCenter=<i>_dataCenter_</i>&apiKey=<i>_siteApiKey_</i>&screenSet=<i>_screenSetId_</i></p>
     <p>When a user is not loggedin it is possible to pass screenset ID to show ('screenSet' param)</p>
     <p>When a user is loggedin 'Default-ProfileUpdate' screenset is always shown</p>
+    <button id="logout" style="display:none" onclick="logout()">Logout</button>
 <script>
 // default site to create users for
 var dataCenter = 'il1';
 var apiKey = '3_DR5_z8VDFZl3KgnaQrCLA8Hxn_vVyZG_aXjEB4Lb-Rcpx_e4DGYCbsl-vmQETc5z';// __base_site
 var screenSet = 'Default-RegistrationLogin';
+
 function onJSLoad() {
     gigya.accounts.getAccountInfo({callback: (res) => {
         console.log(res);
         if (res.UID) {
             screenSet = 'Default-ProfileUpdate';
+            document. getElementById('logout').style.display = 'block';
         }
         gigya.accounts.showScreenSet({ screenSet })
     }});
@@ -44,7 +47,12 @@ function loadGigyaScript(url, callback) {
     // Fire the loading
     head.appendChild(script);
 }
-    
+function logout() {
+    gigya.accounts.logout({callback: (res) => {
+        console.log(res);
+        document. getElementById('logout').style.display = 'none';
+    }})
+}
 function openUpdateProfileScreenset() {
     gigya.accounts.showScreenSet({
         screenSet: 'Default-ProfileUpdate'
